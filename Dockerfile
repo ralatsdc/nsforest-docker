@@ -13,8 +13,8 @@ WORKDIR /root
 
 # Install the conda environment
 ARG ENV_NAME=nsforest
-COPY environment.yaml /
-RUN conda env create --quiet --name ${ENV_NAME} --file /environment.yaml -y && \
+COPY environment.yaml /root
+RUN conda env create --quiet --name ${ENV_NAME} --file /root/environment.yaml -y && \
     conda clean -a
 
 # Clone the repository and checkout the specified release
