@@ -24,11 +24,10 @@ RUN cp .bashrc .bashrc.orig && \
 
 # Clone the repository and checkout the specified release
 # TODO: Use release rather than a branch
-ARG VERSION="origin/rl/add-nextflow-script"
+ARG VERSION="origin/rl/deconstruct-nextflow-script"
 RUN git clone https://github.com/ralatsdc/NSForest.git && \
     cd NSForest && \
-    git checkout -t ${VERSION} && \
-    git pull
+    git checkout ${VERSION}
 
 # Copy script and link package
 RUN cp NSForest/nsforest.py /usr/local/bin && \
