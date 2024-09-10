@@ -17,6 +17,11 @@ COPY environment.yaml /root
 RUN conda env create --quiet --name ${ENV_NAME} --file /root/environment.yaml -y && \
     conda clean -a
 
+# Enable activation of required conda environment when running the
+# container with Docker
+RUN cp .bashrc .bashrc.orig && \
+    sed "s/conda activate base/conda activate $ENV_NAME/" .bashrc.orig > .bashrc
+
 # Clone the repository and checkout the specified release
 # TODO: Use release rather than a branch
 ARG VERSION="origin/rl/add-nextflow-script"
