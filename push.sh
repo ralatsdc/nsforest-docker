@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker push ralatsdio/nsforest:latest
+docker push $@ ralatsdio/nsforest:latest
