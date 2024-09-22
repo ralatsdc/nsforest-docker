@@ -29,6 +29,11 @@ RUN git clone https://github.com/ralatsdc/NSForest.git && \
     cd NSForest && \
     git checkout ${VERSION}
 
-# Add conda installation and package directoriess to PATH (eliminates
-# need to activate required conda environment when using Nextflow)
-ENV PATH="/opt/conda/envs/$ENV_NAME/bin:/root/NSForest:$PATH"
+# Install the executable
+RUN cd /usr/local/bin && \
+    cp /root/NSForest/nsforest.py . && \
+    cp -r /root/NSForest/nsforest .
+
+# Add conda installation directory to PATH (eliminates need to
+# activate required conda environment when using Nextflow)
+ENV PATH="/opt/conda/envs/$ENV_NAME/bin:$PATH"
