@@ -10,7 +10,7 @@ To build your image from the command line:
 * You can do this on [Google shell](https://shell.cloud.google.com) since docker is installed and available.
 
 ```bash
-docker build --platform linux/amd64 -t nsforest:latest .
+bash build.sh
 ```
 
 ### Test
@@ -18,7 +18,7 @@ docker build --platform linux/amd64 -t nsforest:latest .
 To test this tool from the command line:
 
 ```bash
-docker run -it nsforest:latest snakemake -h
+bash test.sh
 ```
 
 Disclaimer
