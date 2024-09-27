@@ -11,7 +11,7 @@ class TestNSForestContainer(unittest.TestCase):
         expected_output_path = f"{data_path}/expected_cluster_results.csv"
         output_path = f"{data_path}/cluster_results.csv"
         pp_path = f"{data_path}/pp_adata_layer1.h5ad"
-        ns_forest_path = "./NSForest/nsforest.py"
+        ns_forest_path = "/usr/local/bin/nsforest.py"
 
         # Run GOEnrich
         subprocess.run(
