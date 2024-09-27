@@ -6,12 +6,12 @@ class TestNSForestContainer(unittest.TestCase):
     def test_consistency(self):
 
         # Set up variables
-        data_path = "/root/tests/test_data"
+        data_path = "./tests/test_data"
         adata_path = f"{data_path}/adata_layer1.h5ad"
         expected_output_path = f"{data_path}/expected_cluster_results.csv"
         output_path = f"{data_path}/cluster_results.csv"
         pp_path = f"{data_path}/pp_adata_layer1.h5ad"
-        ns_forest_path = "/root/NSForest/nsforest.py"
+        ns_forest_path = "./NSForest/nsforest.py"
 
         # Run GOEnrich
         subprocess.run(
