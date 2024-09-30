@@ -23,8 +23,7 @@ RUN cp .bashrc .bashrc.orig && \
     sed "s/conda activate base/conda activate $ENV_NAME/" .bashrc.orig > .bashrc
 
 # Clone the repository and checkout the specified release
-# TODO: Use release rather than a branch
-ARG VERSION="origin/rl/deconstruct-nextflow-script"
+ARG VERSION="v0.1.0"
 RUN git clone https://github.com/ralatsdc/NSForest.git && \
     cd NSForest && \
     git checkout ${VERSION}
