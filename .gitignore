@@ -2,3 +2,5 @@
 .bash_history
 .cache/
 .conda/
+tests/test_data/cluster_results.csv
+tests/test_data/pp_adata_layer1.h5ad
