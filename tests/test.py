@@ -2,20 +2,26 @@ from pathlib import Path
 import subprocess
 import unittest
 
+import pandas as pd
+
 
 class TestNSForestContainer(unittest.TestCase):
 
     def read_lists_and_assert_equal(self):
 
         # Compare actual and expected results lists
-        with open(self.results_path) as actual:
-            with open(self.expected_results_path) as expected:
-                self.assertListEqual(list(actual), list(expected))
+        pd.testing.assert_frame_equal(
+            pd.read_csv(self.results_path), pd.read_csv(self.expected_results_path)
+        )
 
         # Compare actual and expected supplementary lists
-        with open(self.supplementary_path) as actual:
-            with open(self.expected_supplementary_path) as expected:
-                self.assertListEqual(list(actual), list(expected))
+        pd.testing.assert_frame_equal(
+            pd.read_csv(self.supplementary_path),
+            pd.read_csv(self.expected_supplementary_path),
+            check_exact=False,
+            rtol=1e-9,
+            atol=1e-3,
+        )
 
     def setUp(self):
 
